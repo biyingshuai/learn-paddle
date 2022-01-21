@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="file" id="file" name="file" multiple />
+      <img id="img" src="" alt="">
+      <div id="result">
+
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            document.getElementById('file').onchange = function (evt) {
+              var tgt = evt.target || window.event.srcElement;
+              var files = tgt.files;
+              var fr = new FileReader();
+              fr.onload = function () {
+                  const image = new Image;
+                  image.onload = () => {
+                      window.predictImage(image);
+                  };
+                  // image.src = fr.result;
+                  image.src = 'https://fe-dev.bj.bcebos.com/images/img_0.png';
+                  document.getElementById('img').src = image.src;
+              }
+              fr.readAsDataURL(files[0]);
+            };
+        });
+    </script>
+  </body>
+</html>

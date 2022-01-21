@@ -1,0 +1,14 @@
+{
+  "name": "learn-paddle",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@paddlejs/paddlejs-backend-webgl": "~1.1.8",
+    "@paddlejs/paddlejs-core": "~2.1.9",
+    "vite": "^2.7.2"
+  }
+}
